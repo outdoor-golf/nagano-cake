@@ -11,7 +11,11 @@
   <% @foods.each do |food| %>
   <tr>
     <td><%= food.id %></td>
-    <td><%= food.name %></td>
+    <td>
+      <%= link_to food_path(food.id) do %>
+        <%= food.name %>
+      <% end %>
+    </td>
     <td><%= food.price %></td>
     <td><%= food.genre.name %></td>
     <td><%= food.get_status(food.sale_status) %></td>
