@@ -1,0 +1,7 @@
+<h1>商品詳細</h1>
+<p>商品名　　　　　　　　<%= @food.name %></p>
+<p>商品説明　　　　　　　<%= @food.explanation %></p>
+<p>ジャンル　　　　　　　<%= @food.genre.name %></p>
+<p>税込価格(税抜価格)　　<%= @food.price*@tax %>(<%= @food.price %>)</p>
+<p><%= @food.get_status(@food.sale_status) %></p>
+<%= link_to"編集する",edit_food_path(@food.id) %>
