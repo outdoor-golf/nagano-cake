@@ -1,2 +1,0 @@
-class CartFood < ApplicationRecord
-end
