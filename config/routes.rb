@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  
-=======
   namespace :admin do
     get 'homes/top'
   end
   get 'homes/top'
   get 'home/about' => 'homes#about', as: 'about'
->>>>>>> origin/develop
   devise_for :admins
   devise_for :customers
   resources:foods,only:[:new,:create,:index,:show,:edit,:update]
