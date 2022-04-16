@@ -2,19 +2,27 @@
 <html>
   <head>
     <title>WorkGithub</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+<<<<<<< HEAD
     <header>
       <%= link_to"商品一覧",admin_foods_path %>
       <%= link_to"ジャンル一覧",new_admin_genre_path %>
     </header>
     <%= yield %>
+=======
+    <%= render 'layouts/header' %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
+>>>>>>> ff65b2a66e4fe4074c2e810f88c8d7319f70eb6e
   </body>
 </html>
