@@ -1,3 +1,4 @@
+<!--管理者側-->
 <div class="container">
    <h1>商品新規登録</h1>
    <%= form_with model: @food do |f| %>
@@ -9,4 +10,4 @@
      <label>販売ステータス</label><%= f.radio_button :sale_status,true %><label>販売中</label><%= f.radio_button :sale_status,false %>販売停止中<br>
      <%= f.submit"新規登録" %>
    <% end %>
- </div>
+ <% end %>

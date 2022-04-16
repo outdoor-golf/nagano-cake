@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <h4>ジャンル検索</h4>
+      <% @genres.each do |genre| %>
+        <p><%= genre.name %></p>
+      <% end %>
+    </div>
+    <div class="col">
+      <h1>商品一覧<span>(全<%= @foods.count %>件)</span></h1>
+      <% @foods.each do |food| %>
+       <div>
+       <%= image_tag food.image,size: '150x150' %>
+       <p><%= food.name %></p>
+       <p>¥<%= food.price %></p>
+       </div>
+      <% end %>
+    </div>
+  </div>
+</div>
