@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+  get 'orders/show'
   namespace :admin do
     get 'homes/top'
   end
@@ -8,5 +10,6 @@ Rails.application.routes.draw do
   devise_for :customers
   resources:foods,only:[:new,:create,:index,:show,:edit,:update]
   resources:genres,only:[:new,:create]
+  resources:orders,only:[:index,:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
