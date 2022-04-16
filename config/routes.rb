@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources:foods,only:[:new,:create,:index,:show,:edit,:update]
     resources:genres,only:[:new,:create]
+    resources:orders,only:[:index,:show,:update]
     get 'homes/top'
   end
   resources:foods,only:[:index]
@@ -13,6 +14,5 @@ Rails.application.routes.draw do
   devise_for :customers
   resources:foods,only:[:new,:create,:index,:show,:edit,:update]
   resources:genres,only:[:new,:create]
-  resources:orders,only:[:index,:show,:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
