@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col">
+      <%= image_tag @food.image,size: '200x200' %>
+      <%= @food.name %>
+      <%= @food.explanation %>
+      ¥<%= @food.price %>(税込)
+    </div>
+  </div>
+</div>
