@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def confirm
-    
+
   end
 
   def create
@@ -20,6 +20,6 @@ class OrdersController < ApplicationController
   def show
    @order = Order.find(params[:id])
   end
-  
+
   private
 end
