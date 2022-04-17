@@ -1,7 +1,8 @@
 class Food < ApplicationRecord
   has_one_attached:image
   belongs_to:genre
-  
+  has_many:cart_foods
+
   # ステータスが販売中か販売中しか判別するメソッド
   def get_status(number)
     if number == true
@@ -10,6 +11,11 @@ class Food < ApplicationRecord
       "販売停止中"
     end
   end
+  # 消費税を求めるメソッド
+  def with_tax_price
+    (price * 1.1).floor
+  end
+
   # 投稿画像が表示されなかった時にサンプルを表示するメソッド（今回はnullを許可していない為いらない？）
   # def get_image(width,height)
   #   unless image.attached?
