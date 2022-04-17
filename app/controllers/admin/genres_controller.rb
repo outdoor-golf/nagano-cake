@@ -9,7 +9,7 @@ class Admin::GenresController < ApplicationController
     unless Genre.find_by(name: new_genre.name)
       new_genre.save
     end
-    redirect_to new_genre_path
+    redirect_to  new_admin_genre_path
   end
   def edit
     @genre = Genre.find(params[:id])
