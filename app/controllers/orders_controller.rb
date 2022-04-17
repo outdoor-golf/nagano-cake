@@ -1,25 +1,30 @@
 class OrdersController < ApplicationController
 
   def new
-    @new_order = Order.new
-    @adress = Adress.new
-    @adresses = current_customer.adress.all
-  end
-
-  def confirm
-
+    @orders = Order.all
+    
   end
 
   def create
+    current_customer.orders.create(order_params)
+    redirect_to confirm_orders_path
   end
+  
+  
 
   def index
-    @orders = current_customer.orders
+
   end
 
   def show
-   @order = Order.find(params[:id])
+
   end
 
+
+
   private
+
+  def order_params
+    params.require(:order).permit(:postal_code, :address, :name, :shipping_price, :payment_method, :total_price, :status)
+  end
 end
