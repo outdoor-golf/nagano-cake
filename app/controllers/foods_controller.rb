@@ -5,5 +5,6 @@ class FoodsController < ApplicationController
   end
   def show
     @food = Food.find(params[:id])
+    @cart_food = CartFood.new
   end
 end

@@ -7,7 +7,7 @@ class Admin::FoodsController < ApplicationController
   def create
     food = Food.new(food_params)
     food.save
-    redirect_to new_food_path
+    redirect_to admin_foods_path
   end
 
   def index
