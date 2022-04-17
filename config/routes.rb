@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     resources:orders,only:[:index,:show,:update]
     get 'homes/top'
   end
-  resources:foods,only:[:index,:show]
+
   get 'homes/top'
-  get 'home/about' => 'homes#about', as: 'about'
+  get 'homes/about',as: 'about'
 
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   resources:orders,only:[:index,:show]
   resources:cart_foods,only:[:create,:index,:update,:destroy]
   delete :cart_foods, to: 'cart_foods#destroy_all',as:"destroy_all"
-
   resources:addresses,only:[:new,:create,:edit,:update,:destroy]
 
 
