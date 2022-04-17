@@ -33,7 +33,18 @@
                   <h3>About</h3>
                 </li>
                 <li>
-                  <h3>商品一覧</h3>
+                  <h3>
+                    <%= link_to foods_path do %>
+                      商品一覧
+                    <% end %>
+                  </h3>
+                </li>
+                <li>
+                  <h3>
+                    <%= link_to cart_foods_path do %>
+                      カート
+                    <% end %>
+                  </h3>
                 </li>
                 <li>
                   <h3>新規登録</h3>
