@@ -2,6 +2,12 @@ class Food < ApplicationRecord
   has_one_attached:image
   belongs_to:genre
   has_many:cart_foods
+  validates :name,presence: true
+  validates :explanation,presence: true
+  validates :price,presence: true
+  validates :image,presence: true
+  validates :genre_id,presence: true
+
 
   # ステータスが販売中か販売中しか判別するメソッド
   def get_status(number)
