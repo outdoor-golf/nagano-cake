@@ -25,11 +25,8 @@
 
   <body>
     <header>
-      <%= link_to"商品一覧",admin_foods_path %>
-      <%= link_to"ジャンル一覧",new_admin_genre_path %>
+      <%= render 'layouts/header' %>
     </header>
-
-    <%= render 'layouts/header' %>
     <main>
       <%= yield %>
     </main>
