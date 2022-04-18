@@ -4,7 +4,7 @@ class CartFoodsController < ApplicationController
     @cart_food = CartFood.new(cart_food_params)
     @cart_food.customer_id = current_customer.id
     if @cart_food.save
-      redirect_to foods_path
+      redirect_to cart_foods_path
     else
       @genres = Genre.all
       render template: "foods/show"
