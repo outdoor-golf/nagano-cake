@@ -35,8 +35,7 @@
                      管理者ログイン
                    <% end %>
                 </li>
-                <li>
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+
                 <li>
                   <%= link_to about_path do %>
                      About
@@ -51,7 +50,7 @@
                   <%= link_to cart_foods_path do %>
                       カート
                   <% end %>
-                  </h3>
+                  
                 </li>
                 <li>
                   <%= link_to destroy_customer_session_path,method: :delete do %>
