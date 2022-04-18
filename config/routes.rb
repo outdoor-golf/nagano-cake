@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
 
-  get 'homes/top'
+  get 'homes/top',as:"top"
   get 'homes/about',as: 'about'
 
   devise_for :customers,skip: [:passwords], controllers: {
