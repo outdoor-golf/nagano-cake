@@ -1,4 +1,5 @@
 class CartFoodsController < ApplicationController
+  before_action :move_to_signed_in
   def create
     @food = Food.find(cart_food_params[:food_id])
     @cart_food = CartFood.new(cart_food_params)
@@ -34,5 +35,11 @@ class CartFoodsController < ApplicationController
   private
   def cart_food_params
       params.require(:cart_food).permit(:food_id, :quantity)
+  end
+  def move_to_signed_in
+    unless customer_signed_in?
+    #サインインしていないユーザーはログインページ画面に移動
+    redirect_to  new_customer_session_path
+    end
   end
 end
