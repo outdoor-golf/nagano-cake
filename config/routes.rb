@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+ 
+  resources :customer, only: [:show, :edit, :update]
   get 'orders/index'
   get 'orders/show'
   namespace :admin do
