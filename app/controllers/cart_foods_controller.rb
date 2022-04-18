@@ -1,14 +1,17 @@
 class CartFoodsController < ApplicationController
   def create
-    # food = Food.find(cart_food_params[:food_id])
-    cart_food = CartFood.new(cart_food_params)
-    cart_food.customer_id = current_customer.id
-    cart_food.save
-    redirect_to foods_path
+    @food = Food.find(cart_food_params[:food_id])
+    @cart_food = CartFood.new(cart_food_params)
+    @cart_food.customer_id = current_customer.id
+    if @cart_food.save
+      redirect_to foods_path
+    else
+      @genres = Genre.all
+      render template: "foods/show"
+    end
   end
   def index
     @cart_foods = current_customer.cart_foods
-
   end
   def update
     cart_food = CartFood.find(params[:id])
