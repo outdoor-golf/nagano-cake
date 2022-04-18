@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
+    @foods = Food.where(sale_status: true)
     @genres = Genre.all
   end
   def show
