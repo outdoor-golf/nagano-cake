@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'orders/index'
-  get 'orders/show'
+  
   namespace :admin do
     resources:foods,only:[:new,:create,:index,:show,:edit,:update]
     resources:genres,only:[:new,:create,:edit,:update]
     resources:orders,only:[:index,:show,:update]
+    resources:customer,only:[:index,:show,:edit,:update]
     get 'homes/top'
   end
 
