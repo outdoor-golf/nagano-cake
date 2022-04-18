@@ -1,6 +1,7 @@
 <header class="shadow-sm">
+     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
+
           <h1>Nagano Cake</h1>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,15 +69,14 @@
                       商品一覧
                   <% end %>
                 </li>
-
-
             </ul>
             <ul class="navbar-nav mt-1">
               <li class="ml-auto">
               </li>
             </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
+        <div class="text-right"><%= render "searches/form" %></div>
+      </div>
 
     </header>

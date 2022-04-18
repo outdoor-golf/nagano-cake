@@ -30,6 +30,6 @@ Rails.application.routes.draw do
   delete :cart_foods, to: 'cart_foods#destroy_all',as:"destroy_all"
   resources:addresses,only:[:new,:create,:edit,:update,:destroy]
 
-
+  get "searches/search",as:"search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
