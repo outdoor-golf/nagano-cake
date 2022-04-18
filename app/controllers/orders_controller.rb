@@ -16,11 +16,11 @@ class OrdersController < ApplicationController
         params[:payment_method] = params[:payment_method].to_i
         @order = Order.new(order_params)
         @order.customer_id = current_customer.id
-        @order.shipping = 800
-        @cart_items = current_customer.cart_items
+        @order.shipping_price = 800
+        @cart_foods = current_customer.cart_foods
         @order.total_price = 0
-        @cart_items.each do |cart_item|
-            @order.total_price+= cart_item.item.add_tax_price * cart_item.amount
+        @cart_foods.each do |cart_food|
+            @order.total_price+= cart_food.item.add_tax_price * cart_food.amount
         end
         if  params[:order][:address] == "0"
             @order.address = current_customer.address
