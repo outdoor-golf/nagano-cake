@@ -1,3 +1,8 @@
+<div class="row offset-">
+  <h2>注文情報確認</h2>
+</div>
+
+
 <div class="container">
   <div class="row">
     <div class="col-8">
@@ -13,7 +18,7 @@
         <tbody>
             <% @cart_foods.each do |cart_food| %>
           <tr>
-            <td><%=  %><%= cart_food.food.name %></td>
+            <td><%= image_tag cart_food.food.get_image(63,63) %><%= cart_food.food.name %></td>
             <td><%= cart_food.food.add_tax_price.to_s(:delimited) %>円</td>
             <td><%= cart_food.amount %></td>
             <td><%= (cart_food.food.add_tax_price * cart_food.amount).to_s(:delimited) %>円</td>
@@ -42,10 +47,10 @@
    </div>
   </div>
   <div class="row">
-  <h3>支払方法</h3>　<%= @order.payment_method %>
+  <h3>支払方法</h3>　<%= @order.payment_method_i18n %>
   </div>
   <div class="row">
-  <h3>お届け先</h3>　<%= @order.postal_code %><%= @order.address %><%= @order.name %>
+  <h3>お届け先</h3>　〒<%= @order.postal_code %><%= @order.address %><%= @order.name %>
   </div>
     <%= form_with model:@order, url: orders_path, local:true do |f| %>
     <%= f.hidden_field :payment_method ,:value => @order.payment_method %>
