@@ -15,13 +15,13 @@ class OrdersController < ApplicationController
         @order.shipping_price = 800
         @cart_foods = current_customer.cart_foods
         @order.total_price = 0
-        if params[:order][:address]== "0"
+        if params[:order][:address_option]== "0"
           @order.postal_code = current_customer.postal_code
           @order.address = current_customer.address
           @order.name = current_customer.last_name + current_customer.first_name
 
-        elsif params[:order][:address]=="1"
-          @list_address = Address.find_by(params[:order][:address_id])
+        elsif params[:order][:address_option]== "1"
+          @list_address = Address.find_by(params[:order][:address])
           @order.postal_code = @address.postal_code
           @order.address = @address.address
           @order.name = @address.name
