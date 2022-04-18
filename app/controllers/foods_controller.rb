@@ -6,5 +6,6 @@ class FoodsController < ApplicationController
   def show
     @food = Food.find(params[:id])
     @cart_food = CartFood.new
+    @genres = Genre.all
   end
 end
