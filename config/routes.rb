@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
- 
-  resources :customer, only: [:show, :edit, :update]
   get 'orders/index'
   get 'orders/show'
   namespace :admin do
@@ -13,6 +11,8 @@ Rails.application.routes.draw do
   get 'homes/top',as:"top"
   get 'homes/about',as: 'about'
 
+  resources :customer, only: [:show, :edit, :update]
+  put "/customer/:id/hide" => "customer#hide", as: 'customer_hide'
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
