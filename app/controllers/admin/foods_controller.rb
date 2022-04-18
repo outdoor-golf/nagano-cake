@@ -7,7 +7,7 @@ class Admin::FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     if @food.save
-      redirect_to admin_foods_path
+      redirect_to admin_food_path(@food.id)
     else
       @genre = Genre.all
       render "new"
@@ -32,7 +32,7 @@ class Admin::FoodsController < ApplicationController
   def update
     @food = Food.find(params[:id])
     @food.update(food_params)
-    redirect_to admin_foods_path
+    redirect_to admin_food_path(@food.id)
   end
 
   private
