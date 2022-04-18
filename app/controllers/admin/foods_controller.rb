@@ -5,9 +5,13 @@ class Admin::FoodsController < ApplicationController
   end
 
   def create
-    food = Food.new(food_params)
-    food.save
-    redirect_to admin_foods_path
+    @food = Food.new(food_params)
+    if @food.save
+      redirect_to admin_foods_path
+    else
+      @genre = Genre.all
+      render "new"
+    end
   end
 
   def index
