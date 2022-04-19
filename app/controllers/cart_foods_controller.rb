@@ -6,7 +6,7 @@ class CartFoodsController < ApplicationController
     @cart_food = CartFood.new(cart_food_params)
     @cart_food.customer_id = current_customer.id
     if @cart_food.save
-      redirect_to cart_foods_path
+      redirect_to cart_foods_path, notice:'カート追加しました'
     else
       @genres = Genre.all
       render template: "foods/show"
@@ -27,7 +27,7 @@ class CartFoodsController < ApplicationController
   def destroy
     cart_food = CartFood.find(params[:id])
     cart_food.destroy
-    redirect_to cart_foods_path
+    redirect_to cart_foods_path,notice:'カートから削除しました'
   end
 
   def destroy_all
