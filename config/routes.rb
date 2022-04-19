@@ -7,9 +7,11 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
 
-  get 'homes/top'
+  get 'homes/top',as:"top"
   get 'homes/about',as: 'about'
 
+  resources :customer, only: [:show, :edit, :update]
+  put "/customer/:id/hide" => "customer#hide", as: 'customer_hide'
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -32,6 +34,6 @@ Rails.application.routes.draw do
       end
     end
 
-
+  get "searches/search",as:"search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

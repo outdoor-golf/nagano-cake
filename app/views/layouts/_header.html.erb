@@ -1,6 +1,7 @@
 <header class="shadow-sm">
+     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
+
           <h1>Nagano Cake</h1>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,6 +10,13 @@
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? && customer_signed_in? %>
+                 <li>
+                   <%= link_to about_path do %>
+                     About
+                   <% end %>
+                 </li>
+              <% end %>
               <% if admin_signed_in? %>
                  <li>
                     <%= link_to admin_foods_path do %>
@@ -26,33 +34,19 @@
                       ジャンル一覧
                     <% end %>
                  </li>
-                <li>
+                 <li>
                    <%= link_to destroy_admin_session_path,method: :delete do %>
                       管理者ログアウト
                    <% end %>
-              <% else %>
-                   <%= link_to new_admin_session_path do %>
-                     管理者ログイン
-                   <% end %>
-                </li>
+                  </li>
               <% end %>
 
               <% if customer_signed_in? %>
 
                 <li>
-                  <%= link_to about_path do %>
-                     About
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to foods_path do %>
-                      商品一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to cart_foods_path do %>
-                      カート
-                  <% end %>
+                  <%= link_to"カート",cart_foods_path %>
+
+
                   </h3>
                 </li>
                 <li>
@@ -63,22 +57,27 @@
                 <li>
               <% else %>
                 <li>
+                   新規登録
+                </li>
+                <li>
                   <%= link_to new_customer_session_path do %>
                       ログイン
                   <% end %>
                 </li>
-                   新規登録
-                </li>
               <% end %>
-
-
+                <li>
+                  <%= link_to foods_path do %>
+                      商品一覧
+                  <% end %>
+                </li>
             </ul>
             <ul class="navbar-nav mt-1">
               <li class="ml-auto">
               </li>
             </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
+        <div class="text-right"><%= render "searches/form" %></div>
+      </div>
 
     </header>

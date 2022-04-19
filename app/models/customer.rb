@@ -6,4 +6,9 @@ class Customer < ApplicationRecord
   has_many:cart_foods
   has_many:addresses
   has_many:orders
+
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
 end
