@@ -6,3 +6,7 @@
   <%= @customer.telephone_number %>
   <%= @customer.adress %>
   <%= link_to "編集", edit_admin_customer_path(@customer.id) %>
+  <p>注文一覧をみる</p>
+  会員ステータス
+  <%= @customer.is_deleted %>
+  

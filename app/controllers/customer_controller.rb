@@ -8,8 +8,11 @@ class CustomerController < ApplicationController
   end
   def update
     @customer = Customer.find(current_customer.id)
-    @customer.update(customer_params)
-    redirect_to customer_path(current_customer.id)
+    if @customer.update(customer_params)
+    redirect_to foods_path
+    else
+      render "edit"
+    end  
   end
   def hide
     @customer = Customer.find(current_customer.id)
