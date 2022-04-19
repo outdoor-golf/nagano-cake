@@ -32,7 +32,7 @@ class CartFoodsController < ApplicationController
 
   def destroy_all
     current_customer.cart_foods.destroy_all
-    redirect_to cart_foods_path
+    redirect_to cart_foods_path,notice:'カート全削除しました'
   end
 
 

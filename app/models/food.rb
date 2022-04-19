@@ -6,7 +6,7 @@ class Food < ApplicationRecord
   validates :explanation,presence: true
   validates :price,presence: true
   validates :image,presence: true
-  validates :genre_id,presence: true
+
 
 
   # ステータスが販売中か販売中しか判別するメソッド
