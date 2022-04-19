@@ -4,5 +4,5 @@
    再度ご利用をいただく場合には、新規登録のお手続きが必要になります。<br>
    本当に退会してよろしいですか？
  </p>
-  <div> <%= link_to "退会する", customer_hide_path(current_customer), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %></div> 
+  <%= link_to "退会する", withdrawal_path(current_customer.id), method: :patch, data: { confilm: "本当に退会しますか？" } %>
   <%= link_to "退会しない", customer_path(current_customer.id) %>
